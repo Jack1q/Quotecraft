@@ -1,0 +1,14 @@
+name: Quotecraft
+main: com.gmail.jackdonofrio12.Quotecraft
+version: 1.0
+api-version: 1.13
+commands:
+   quote:
+      description: displays a random quote to the player based on the category they selected.
+      usage: /<command>
+   quotebook:
+      description: gives the player a book of all quotes related to the category they selected.
+      usage: /<command>
+   quoteoftheday:
+      description: displays a new quote every day
+      usage: /<command>
