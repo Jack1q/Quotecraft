@@ -9,19 +9,20 @@ public class QuoteGenerator
 {
   private String genre;
   private final String[] GENRES = {"life", "motivation"}; // add more
-  private final int NUMBER_OF_LINES_IN_DOCUMENTS = 50;
+  private int numberOfLinesInDocument;
 
   public QuoteGenerator(String genre)
   {
     this.genre = genre;
+    this.numberOfLinesInDocument = getNumberOfLines();
   }
-
+  
   public Quote chooseRandomQuote()
   {
     if (genreIsValid())
     {
       int randomLineNumber =
-        (int) (Math.random() * NUMBER_OF_LINES_IN_DOCUMENTS) + 1;
+        (int) (Math.random() * this.numberOfLinesInDocument) + 1;
       InputStream in = getClass().getResourceAsStream(getFileName());
       try
       {
@@ -56,7 +57,7 @@ public class QuoteGenerator
         String currentLine = br.readLine(); // first line is read so it will be
                                             // ignored
         while ((currentLine = br.readLine()) != null
-          && currentLineNumber < NUMBER_OF_LINES_IN_DOCUMENTS)
+          && currentLineNumber < this.numberOfLinesInDocument)
         {
           quotesFromGenre.add(rawLineToQuote(currentLine));
           currentLineNumber++;
@@ -79,6 +80,22 @@ public class QuoteGenerator
         return true;
     }
     return false;
+  }
+  
+  private int getNumberOfLines() {
+      InputStream in = getClass().getResourceAsStream(getFileName());
+      int lineCount = 0;
+      try
+      {
+        BufferedReader br = new BufferedReader(new InputStreamReader(in));
+        while (br.readLine() != null)
+        	lineCount++;
+      }
+      catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+      return lineCount;
   }
 
   private String getFileName()
