@@ -10,4 +10,4 @@ Very simple and lightweight Spigot quote plugin.
 - Current genres include 'life' and 'motivation.' They both have around 50 quotes in them. 
 
 ## Contributing
-- Feel free to make a pull request if you want to add any new quotes or genres or see a bug to fix or feature you want to add.
+- Feel free to make a pull request if you want to add any new [quotes](https://github.com/Jack1q/Quotecraft/tree/master/Quotecraft/src/com/gmail/jackdonofrio12/quotes) or genres or see a bug to fix or feature you want to add.
